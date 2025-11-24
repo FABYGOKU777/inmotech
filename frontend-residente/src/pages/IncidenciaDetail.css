@@ -1,0 +1,146 @@
+.incidencia-detail-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: #f3f4f6;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  background: #e5e7eb;
+}
+
+.detail-header {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.detail-header h1 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.estado-badge,
+.prioridad-badge,
+.tipo-badge {
+  padding: 6px 14px;
+  border-radius: 12px;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.tipo-badge {
+  background: #6366f1;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section.success {
+  background: #f0fdf4;
+  border-left: 4px solid #10b981;
+}
+
+.section h2 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.section p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.imagen-container {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imagen-container img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  background: #f9fafb;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item p {
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.info-item small {
+  color: #666;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #666;
+}
+
+.error {
+  color: #ef4444;
+}
+
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
