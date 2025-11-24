@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../config/axios';
 import './NuevaIncidencia.css';
 
 const NuevaIncidencia = () => {
@@ -35,7 +35,7 @@ const NuevaIncidencia = () => {
         formData.append('imagen', imagen);
       }
 
-      const response = await axios.post('/api/incidencias/create', formData, {
+      const response = await api.post('/api/incidencias/create', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

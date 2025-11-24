@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../config/axios';
 import './IncidenciaDetail.css';
 
 const IncidenciaDetail = () => {
@@ -15,7 +15,7 @@ const IncidenciaDetail = () => {
 
   const fetchIncidencia = async () => {
     try {
-      const response = await axios.get(`/api/incidencias/${id}`);
+      const response = await api.get(`/api/incidencias/${id}`);
       setIncidencia(response.data.incidencia);
     } catch (error) {
       console.error('Error fetching incidencia:', error);

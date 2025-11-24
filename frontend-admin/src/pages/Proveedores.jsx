@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../config/axios';
 import './Proveedores.css';
 
 const Proveedores = () => {
@@ -20,7 +20,7 @@ const Proveedores = () => {
 
   const fetchProveedores = async () => {
     try {
-      const response = await axios.get('/api/proveedores/list');
+      const response = await api.get('/api/proveedores/list');
       setProveedores(response.data.proveedores);
     } catch (error) {
       console.error('Error fetching proveedores:', error);
@@ -33,9 +33,9 @@ const Proveedores = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`/api/proveedores/${editingId}`, formData);
+        await api.put(`/api/proveedores/${editingId}`, formData);
       } else {
-        await axios.post('/api/proveedores/create', formData);
+        await api.post('/api/proveedores/create', formData);
       }
       await fetchProveedores();
       setShowForm(false);
@@ -67,7 +67,7 @@ const Proveedores = () => {
     if (!confirm('¿Está seguro de eliminar este proveedor?')) return;
 
     try {
-      await axios.delete(`/api/proveedores/${id}`);
+      await api.delete(`/api/proveedores/${id}`);
       await fetchProveedores();
     } catch (error) {
       alert('Error al eliminar proveedor');

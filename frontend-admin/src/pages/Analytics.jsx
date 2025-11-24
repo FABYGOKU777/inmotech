@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../config/axios';
 import {
   BarChart,
   Bar,
@@ -25,7 +25,7 @@ const Analytics = () => {
 
   const fetchAnalytics = async () => {
     try {
-      const response = await axios.get('/api/analytics/dashboard');
+      const response = await api.get('/api/analytics/dashboard');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching analytics:', error);

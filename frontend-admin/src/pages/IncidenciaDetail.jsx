@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../config/axios';
 import './IncidenciaDetail.css';
 
 const IncidenciaDetail = () => {
@@ -23,8 +23,8 @@ const IncidenciaDetail = () => {
   const fetchData = async () => {
     try {
       const [incidenciaRes, proveedoresRes] = await Promise.all([
-        axios.get(`/api/incidencias/${id}`),
-        axios.get('/api/proveedores/list')
+        api.get(`/api/incidencias/${id}`),
+        api.get('/api/proveedores/list')
       ]);
 
       setIncidencia(incidenciaRes.data.incidencia);
@@ -46,7 +46,7 @@ const IncidenciaDetail = () => {
     setUpdating(true);
 
     try {
-      await axios.put(`/api/incidencias/${id}`, formData);
+      await api.put(`/api/incidencias/${id}`, formData);
       await fetchData();
       alert('Incidencia actualizada exitosamente');
     } catch (error) {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../config/axios';
 import './Incidencias.css';
 
 const Incidencias = () => {
@@ -24,7 +24,7 @@ const Incidencias = () => {
       if (filters.tipo) params.append('tipo', filters.tipo);
       if (filters.prioridad) params.append('prioridad', filters.prioridad);
 
-      const response = await axios.get(`/api/incidencias/list?${params.toString()}`);
+      const response = await api.get(`/api/incidencias/list?${params.toString()}`);
       setIncidencias(response.data.incidencias);
     } catch (error) {
       console.error('Error fetching incidencias:', error);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../config/axios';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -14,8 +14,8 @@ const Dashboard = () => {
   const fetchData = async () => {
     try {
       const [analyticsRes, incidenciasRes] = await Promise.all([
-        axios.get('/api/analytics/dashboard'),
-        axios.get('/api/incidencias/list?limit=5')
+        api.get('/api/analytics/dashboard'),
+        api.get('/api/incidencias/list?limit=5')
       ]);
 
       setStats(analyticsRes.data);
